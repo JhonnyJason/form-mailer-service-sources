@@ -4,3 +4,6 @@
 [submodule "source/validatabletimestamp"]
 	path = source/validatabletimestamp
 	url = git@github.com:JhonnyJason/thingy-sources-validatabletimestampmodule.git
+[submodule "source/formmailerinterface"]
+	path = source/formmailerinterface
+	url = git@github.com:JhonnyJason/formmailerinterface.git
