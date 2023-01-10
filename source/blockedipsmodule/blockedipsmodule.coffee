@@ -14,9 +14,11 @@ export initialize = ->
     return
 
 export passOrThrow = (ip) ->
+    return
     if blockedIps[ip] then throw new Error("Your IP address has been blocked!")
     return
 
 export block = (ip) ->
+    return
     blockedIps[ip] = true
     return
