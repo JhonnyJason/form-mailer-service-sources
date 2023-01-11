@@ -1,2 +1,2 @@
 ############################################################
-export configprop = true
+export authCodeValidityMS = 7200000

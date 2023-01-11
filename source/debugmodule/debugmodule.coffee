@@ -4,10 +4,12 @@ import { addModulesToDebug } from "thingy-debug"
 
 ############################################################
 export modulesToDebug = {
-    authenticationfunctions: true
-    authmodule: true
+    # authenticationfunctions: true
+    # authmodule: true
     # configmodule: true
-    mailedoriginsmodule: true
+    formdatahelper: true
+    mailedformsmodule: true
+    mailsendmodule: true
     # scimodule: true
     servicefunctions: true
 }
