@@ -81,6 +81,21 @@ export setFormBaseData = (formId, baseData) ->
     return
 
 ############################################################
+export setFormHTMLTemplate = (formId, template) ->
+    data = await loadEncryptedData(formId)
+    formDataObj = new FormData(data)
+    formDataObj.setHTMLTemplate(template)
+    await saveEncryptedData(formId, formDataObj.data)
+
+############################################################
+export setFormTextTemplate = (formId, template) ->
+    data = await loadEncryptedData(formId)
+    formDataObj = new FormData(data)
+    formDataObj.setTextTemplate(template)
+    await saveEncryptedData(formId, formDataObj.data)
+
+
+############################################################
 export getSendDataFor = (formId) ->
     data = await loadEncryptedData(formId)
     olog data

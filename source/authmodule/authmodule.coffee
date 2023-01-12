@@ -56,7 +56,7 @@ export createAuthCodeFor = (origin, ip, secret) ->
     authCodeFor[key] = {authCode, timestamp, timeoutId, secret}
     # log " - - - - - - - - -"
     # log "created authObj for "+key
-    # printData()
+    printData()
     return authCode
 
 ############################################################

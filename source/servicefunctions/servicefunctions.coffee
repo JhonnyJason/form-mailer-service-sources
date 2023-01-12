@@ -28,12 +28,12 @@ export sendForm = (req) ->
     origin = req.origin
 
     filter.throwOnMalicousness(formData)
-    ## TODO check the formBody for malicousness
-
-    contentData = formatter.formToMailContent(formData)
-    olog contentData
 
     data = await forms.getSendDataFor(formId)
+
+    contentData = formatter.formToMailContent(formData, data.templates)
+    olog contentData
+
     Object.assign(data, contentData)
     olog data
 
