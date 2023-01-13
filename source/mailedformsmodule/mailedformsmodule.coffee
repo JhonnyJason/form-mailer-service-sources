@@ -96,7 +96,6 @@ export setFormTextTemplate = (formId, template) ->
 ############################################################
 export getSendDataFor = (formId) ->
     data = await loadEncryptedData(formId)
-    olog data
     formDataObj = new FormData(data)
     sendData = formDataObj.getSendData()
     formDataObj.incSendCount()
@@ -106,8 +105,8 @@ export getSendDataFor = (formId) ->
 ############################################################
 export validateFormId = (origin, formId) ->
     log "validateFormId"
-    olog origins
-    log origin
+    olog  { origin, formId, origins }
+
     originObj = origins[origin]
     # if !originObj? then throw new Error("Unknown origin!")
     # if originObj.formId != formId then throw new Error("Invalid formId!")
