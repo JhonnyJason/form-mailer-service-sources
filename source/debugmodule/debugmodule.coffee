@@ -4,8 +4,8 @@ import { addModulesToDebug } from "thingy-debug"
 
 ############################################################
 export modulesToDebug = {
-    # authenticationfunctions: true
-    # authmodule: true
+    authenticationfunctions: true
+    authmodule: true
     # configmodule: true
     formdatahelper: true
     mailedformsmodule: true
