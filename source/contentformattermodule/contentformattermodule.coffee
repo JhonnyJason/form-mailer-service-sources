@@ -5,7 +5,17 @@ import { createLogFunctions } from "thingy-debug"
 #endregion
 
 ############################################################
+
 import M from "mustache"
+
+############################################################
+isEmailRegEx = /\S+@\S+\.\S+/;
+
+############################################################
+isValidEmail = (email) ->
+    if typeof email != "string" then return false
+    email = email.trim()
+    return isEmailRegEx.test(email);
 
 ############################################################
 formatTextLine = (label, content) ->
@@ -17,8 +27,13 @@ formatHTMLLine = (label, content) ->
 
 ############################################################
 export formToMailContent = (formData, templates) ->
+    log "formToMailContent"
+    olog templates
     if templates? then { htmlTemplate, textTemplate } = templates
     
+    if formData.email? and isValidEmail(formData.email) 
+        replyTo = formData.email
+
     # Text Template
     if textTemplate? then textContent = M.render(textTemplate, formData)
     else
@@ -34,4 +49,4 @@ export formToMailContent = (formData, templates) ->
             htmlContent += formatHTMLLine(label, content)
         htmlContent += "</body></html>"
         
-    return { textContent, htmlContent }
+    return { textContent, htmlContent, replyTo }

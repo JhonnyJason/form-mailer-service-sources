@@ -36,6 +36,7 @@ export sendMail = (data) ->
         text: data.textContent,
         html: data.htmlContent
     }
+    if data.replyTo? then mailOptions.replyTo = data.replyTo 
 
     logInfo = await transporter.sendMail(mailOptions)
     olog logInfo

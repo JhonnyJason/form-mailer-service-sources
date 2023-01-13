@@ -40,8 +40,8 @@ export class FormData
 
     getSendData: ->
         { host, port, security, user, password } = @data.smtp
-        { origin, formName, receiver, sendCount, template } = @data
+        { origin, formName, receiver, sendCount, templates } = @data
         subject = "[#{origin}] #{formName} #{sendCount}"
-        return { host, port, security, user, password, subject, receiver, template }
+        return { host, port, security, user, password, subject, receiver, templates }
 
     incSendCount: -> @data.sendCount++ 

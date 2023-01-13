@@ -28,7 +28,6 @@ export initialize = ->
 ############################################################
 validateOriginsStore = ->
     log "validateOriginsStore"
-    return
     meta = originsStore.meta
     signature = meta.serverSig
     if !signature then throw new Error("No signature in originsStore.meta !")
@@ -67,7 +66,7 @@ export setFormSMTPData = (formId, smtpData) ->
     data = await loadEncryptedData(formId)
     formDataObj = new FormData(data)
     formDataObj.setSMTPData(smtpData)
-    await saveEncryptedData(formId, formDataObj.data)    
+    await saveEncryptedData(formId, formDataObj.data)
     return
 
 ############################################################
@@ -93,7 +92,6 @@ export setFormTextTemplate = (formId, template) ->
     formDataObj = new FormData(data)
     formDataObj.setTextTemplate(template)
     await saveEncryptedData(formId, formDataObj.data)
-
 
 ############################################################
 export getSendDataFor = (formId) ->

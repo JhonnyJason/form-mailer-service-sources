@@ -26,16 +26,14 @@ export sendForm = (req) ->
     log "sendForm"
     { formData, formId } = req.body
     origin = req.origin
-
     filter.throwOnMalicousness(formData)
-
+    
     data = await forms.getSendDataFor(formId)
-
     contentData = formatter.formToMailContent(formData, data.templates)
-    olog contentData
+    # olog contentData
 
     Object.assign(data, contentData)
-    olog data
+    # olog data
 
     await sender.sendMail(data)
     return
